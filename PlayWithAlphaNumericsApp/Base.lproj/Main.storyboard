@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Play With Alpha NumVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PlayWithAlphaNumericsApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" userLabel="Play With Alpha NumVC" customClass="ViewController" customModule="PlayWithAlphaNumericsApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="mmr-gR-G7K" userLabel="BigContainerSV">
                                 <rect key="frame" x="20" y="79" width="353" height="719"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-2F-jxG" userLabel="HeaderLBL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ywX-2F-jxG" userLabel="HeaderLBL">
                                         <rect key="frame" x="0.0" y="0.0" width="353" height="72"/>
                                         <color key="backgroundColor" red="0.0" green="0.40392156862745099" blue="0.27843137254901962" alpha="1" colorSpace="calibratedRGB"/>
                                         <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="26"/>
@@ -44,6 +44,9 @@
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ofq-db-2Vw">
                                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="numberSwitchChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="db9-iJ-5SW"/>
+                                                                </connections>
                                                             </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Numbers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cWa-tN-Jam">
                                                                 <rect key="frame" x="57.000000000000021" y="0.0" width="71.333333333333314" height="31"/>
@@ -58,6 +61,9 @@
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lOU-NO-ZTL">
                                                                 <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                                <connections>
+                                                                    <action selector="stringSwitchChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="dQ5-Kh-Aoi"/>
+                                                                </connections>
                                                             </switch>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Strings" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="77F-ko-CEh">
                                                                 <rect key="frame" x="57.000000000000021" y="0.0" width="71.333333333333314" height="31"/>
@@ -144,6 +150,9 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Generate patterns" cornerStyle="capsule">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="generatePattern:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Eff-KQ-iF4"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xtp-dG-cIu">
                                                 <rect key="frame" x="180.66666666666663" y="0.0" width="172.33333333333337" height="57.666666666666664"/>
@@ -212,7 +221,19 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="firstNumLBL" destination="RTf-sN-TiK" id="h2z-iD-wu3"/>
+                        <outlet property="firstNumStepper" destination="LqO-Im-sam" id="R8t-xa-ddH"/>
+                        <outlet property="firstStrTF" destination="KgG-RH-Ffx" id="yDh-OY-aWC"/>
+                        <outlet property="generatePatternBTN" destination="9DH-a6-cPW" id="CXz-nR-PE7"/>
                         <outlet property="headerLBL" destination="ywX-2F-jxG" id="F4W-le-65X"/>
+                        <outlet property="manipulateStringsBTN" destination="xtp-dG-cIu" id="ARy-20-2zQ"/>
+                        <outlet property="messageTV" destination="txn-Qr-CKJ" id="WlT-au-8nK"/>
+                        <outlet property="numberSWCH" destination="ofq-db-2Vw" id="IlT-Ya-jWR"/>
+                        <outlet property="resetBTN" destination="UMQ-OV-7F4" id="giL-fn-tWK"/>
+                        <outlet property="secondNumLBL" destination="ffD-X3-JMV" id="xnV-Jh-KQd"/>
+                        <outlet property="secondNumStepper" destination="jbG-vh-jjy" id="3qi-ov-ufD"/>
+                        <outlet property="secondStrTF" destination="oEN-Yn-tjE" id="Dhh-Um-xcD"/>
+                        <outlet property="stringSWCH" destination="lOU-NO-ZTL" id="7Q1-hh-afG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
