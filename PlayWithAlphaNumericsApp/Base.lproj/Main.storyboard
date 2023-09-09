@@ -211,6 +211,9 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mmr-gR-G7K" secondAttribute="trailing" constant="20" id="wFZ-Ao-NSr"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="headerLBL" destination="ywX-2F-jxG" id="F4W-le-65X"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
