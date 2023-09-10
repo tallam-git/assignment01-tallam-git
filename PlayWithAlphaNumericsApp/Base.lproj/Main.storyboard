@@ -89,7 +89,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-sN-TiK" userLabel="firstNumLBL">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RTf-sN-TiK" userLabel="firstNumLBL">
                                                 <rect key="frame" x="149.33333333333334" y="0.0" width="101.66666666666666" height="43"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
@@ -97,6 +97,9 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="LqO-Im-sam" userLabel="First Num Stepper">
                                                 <rect key="frame" x="259" y="0.0" width="94" height="43"/>
+                                                <connections>
+                                                    <action selector="firstNumStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="vL8-hK-oKn"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                         <constraints>
@@ -120,6 +123,9 @@
                                             </label>
                                             <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="jbG-vh-jjy" userLabel="Second Num Stepper">
                                                 <rect key="frame" x="259" y="0.0" width="94" height="43.333333333333336"/>
+                                                <connections>
+                                                    <action selector="secondNumStepper:" destination="BYZ-38-t0r" eventType="valueChanged" id="TQz-3Q-lCf"/>
+                                                </connections>
                                             </stepper>
                                         </subviews>
                                         <constraints>
@@ -160,13 +166,16 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Manipulate strings" cornerStyle="capsule">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="manipulateStrings:" destination="BYZ-38-t0r" eventType="touchUpInside" id="TA7-ll-pvN"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6cm-q2-ICM" userLabel="MessageTV">
                                         <rect key="frame" x="0.0" y="438.66666666666657" width="353" height="236.33333333333331"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="txn-Qr-CKJ" userLabel="MessageTV">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="txn-Qr-CKJ" userLabel="MessageTV">
                                                 <rect key="frame" x="0.0" y="0.0" width="353" height="236.33333333333334"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -191,6 +200,10 @@
                                                 <buttonConfiguration key="configuration" style="filled" title="Reset" cornerStyle="capsule">
                                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="generatePattern:" destination="BYZ-38-t0r" eventType="touchUpInside" id="afW-9A-6eF"/>
+                                                    <action selector="onReset:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6V7-eB-eH8"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gaI-1y-fBn">
                                                 <rect key="frame" x="240.66666666666671" y="0.0" width="112.33333333333334" height="36"/>

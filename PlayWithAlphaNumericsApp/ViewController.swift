@@ -37,6 +37,8 @@ class ViewController: UIViewController {
         
         self.headerLBL.text = String(format:"%@\nPlay with AlphaNumerics™️","\u{0c38}\u{0c4d}\u{0c35}\u{0c3e}\u{0c17}\u{0c24}\u{0c02}")
         
+        self.numberSWCH.isOn = false
+        self.stringSWCH.isOn = false
         self.firstNumStepper.isEnabled = false
         self.secondNumStepper.isEnabled = false
         self.firstStrTF.isEnabled = false
@@ -48,23 +50,82 @@ class ViewController: UIViewController {
 
     @IBAction func numberSwitchChange(_ sender: UISwitch)
     {
-        self.firstNumStepper.isEnabled = sender.isOn
-        self.secondNumStepper.isEnabled = sender.isOn
-        self.generatePatternBTN.isEnabled = sender.isOn
+        let isEnabled = sender.isOn
+        self.firstNumStepper.isEnabled = isEnabled
+        self.secondNumStepper.isEnabled = isEnabled
+        self.generatePatternBTN.isEnabled = isEnabled
     }
     
     @IBAction func stringSwitchChange(_ sender: UISwitch)
     {
-        self.firstStrTF.isEnabled = sender.isOn
-        self.secondStrTF.isEnabled = sender.isOn
-        self.manipulateStringsBTN.isEnabled = sender.isOn
+        let isEnabled = sender.isOn
+        self.firstStrTF.isEnabled = isEnabled
+        self.secondStrTF.isEnabled = isEnabled
+        self.manipulateStringsBTN.isEnabled = isEnabled
     }
     
    
-    @IBAction func generatePattern(_ sender: UIButton) {
+    @IBAction func firstNumStepper(_ sender: UIStepper) {
+        firstNumLBL.text = String(format:"%.0f",sender.value)
+    }
     
+    
+    @IBAction func secondNumStepper(_ sender: UIStepper) {
+        secondNumLBL.text = String(format:"%.0f",sender.value)
+    }
+    
+    @IBAction func generatePattern(_ sender: UIButton) {
+        
+        let a = Int(firstNumStepper.value)
+        let b = Int(secondNumStepper.value)
+        
+        if a == 0 || b == 0
+        {
+            messageTV.text = "> 0"
+        }
+        else
+        {
+            var pattern = ""
+            for i in 1...a
+            {
+                for j in 1...b
+                {
+                    if i==1 || i == a || j==1 || j==b
+                    {
+                        pattern += "X"
+                    }
+                    else
+                    {
+                        pattern += " "
+                    }
+                }
+                pattern += "\n"
+            }
+            messageTV.text = pattern
+        }
+        
         
     }
     
+    
+    @IBAction func manipulateStrings(_ sender: UIButton) {
+        
+        
+    }
+    
+    
+    @IBAction func onReset(_ sender: Any) {
+        self.numberSWCH.isOn = false
+        self.stringSWCH.isOn = false
+        self.firstNumStepper.isEnabled = false
+        self.secondNumStepper.isEnabled = false
+        self.firstStrTF.isEnabled = false
+        self.secondStrTF.isEnabled = false
+        self.generatePatternBTN.isEnabled = false
+        self.manipulateStringsBTN.isEnabled = false
+        self.messageTV.text=""
+        self.firstStrTF.text=""
+        self.secondStrTF.text=""
+    }
 }
 
