@@ -76,39 +76,55 @@ class ViewController: UIViewController {
     
     @IBAction func generatePattern(_ sender: UIButton) {
         
-        let a = Int(firstNumStepper.value)
-        let b = Int(secondNumStepper.value)
-        
-        if a == 0 || b == 0
-        {
-            messageTV.text = "> 0"
-        }
-        else
-        {
-            var pattern = ""
-            for i in 1...a
-            {
-                for j in 1...b
-                {
-                    if i==1 || i == a || j==1 || j==b
-                    {
-                        pattern += "X"
-                    }
-                    else
-                    {
-                        pattern += " "
-                    }
-                }
-                pattern += "\n"
-            }
-            messageTV.text = pattern
-        }
-        
-        
     }
     
     
     @IBAction func manipulateStrings(_ sender: UIButton) {
+        
+        let firstString = firstStrTF.text
+        let secondString = secondStrTF.text
+        
+        
+        if  firstString == ""
+        {
+            messageTV.text = "First string value is invalid. Please provide at least one character."
+        }
+        else if secondString == ""
+        {
+            messageTV.text = "Second string value is invalid. Please provide at least one character."
+        }
+        else{
+            let result = "\(firstString ?? "")\(secondString ?? "")"
+            
+            let vowels = "aeiouAEIOU"
+            let CS = result.lowercased()
+            
+            var VowCount = 0
+            var ConCount = 0
+            
+            for char in CS{
+                if char.isLetter{
+                    if vowels.contains(char){
+                        VowCount += 1
+                    }
+                    else
+                    {
+                        ConCount += 1
+                    }
+                }
+            }
+            let VC = "\(VowCount)"
+            let CC = "\(ConCount)"
+            
+            let O1 = "Concatenation of two strings results in " + "\""+"\(result)"+"\""
+            let O2 = "\nNumber of Vowels in " + "\""+"\(result)"+"\""+" is "+"\(VC)"
+            let O3 = "\nNumber of Consonants in " + "\""+"\(result)"+"\""+" is "+"\(CC)"
+            messageTV.text = "\(O1)\(O2)\(O3)"
+            
+
+        }
+        
+        
         
         
     }
@@ -126,6 +142,8 @@ class ViewController: UIViewController {
         self.messageTV.text=""
         self.firstStrTF.text=""
         self.secondStrTF.text=""
+        self.firstNumLBL.text=""
+        self.secondNumLBL.text=""
     }
 }
 
