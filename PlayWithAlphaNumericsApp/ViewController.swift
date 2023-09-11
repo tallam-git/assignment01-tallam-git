@@ -78,6 +78,19 @@ class ViewController: UIViewController {
         
     }
     
+    func countUniqueCharacters (in inputString : String) -> Int{
+        var UnqCC = 0
+        var UnqC = Set<Character>()
+        
+        for char in inputString{
+            if !UnqC.contains(char)
+            {
+                UnqC.insert(char)
+                UnqCC += 1
+            }
+        }
+        return UnqCC
+    }
     
     @IBAction func manipulateStrings(_ sender: UIButton) {
         
@@ -115,11 +128,15 @@ class ViewController: UIViewController {
             }
             let VC = "\(VowCount)"
             let CC = "\(ConCount)"
+            let RS = String(result.reversed())
+            let UnqCount = countUniqueCharacters(in: result)
+            let O1 = "Concatenation of two strings results in " + "\""+"\(result)"+"\""+"."
+            let O2 = "\nNumber of Vowels in " + "\""+"\(result)"+"\""+" is "+"\(VC)"+"."
+            let O3 = "\nNumber of Consonants in " + "\""+"\(result)"+"\""+" is "+"\(CC)"+"."
+            let O4 = "\nNumber of unique characters in " + "\""+"\(result)"+"\""+" is "+"\(UnqCount)"+"."
+            let O5 = "\nThe reversal of " + "\""+"\(result)"+"\""+" results in  "+"\""+"\(RS)"+"\""+"."
             
-            let O1 = "Concatenation of two strings results in " + "\""+"\(result)"+"\""
-            let O2 = "\nNumber of Vowels in " + "\""+"\(result)"+"\""+" is "+"\(VC)"
-            let O3 = "\nNumber of Consonants in " + "\""+"\(result)"+"\""+" is "+"\(CC)"
-            messageTV.text = "\(O1)\(O2)\(O3)"
+            messageTV.text = "\(O1)\(O2)\(O3)\(O4)\(O5)"
             
 
         }
